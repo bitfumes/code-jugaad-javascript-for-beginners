@@ -1,3 +1,6 @@
-// here we are making title as red colored
-document.getElementById("title").style.color = "red";
-console.log(`"Hello 'World'"`);
+let firstname = "Sarthak",
+  lastname = "Shrivastava";
+console.log(firstname, lastname);
+
+const MY_PI = 3.14;
+console.log(MY_PI);
