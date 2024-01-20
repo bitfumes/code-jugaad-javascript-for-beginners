@@ -1,8 +1,22 @@
-let a = 5;
-let b = 2;
-// console.log(5 & 2); // AND OPERATION
-// console.log(5 | 3); // OR OPERATION
-// console.log(~5); // NOT OPERATION
-// console.log(5 >> 3); // Shift OPERATION
-// 5 = 000000000000
-// ~5 = 1010
+// If statement
+// Nullish coalescing operator '??'
+// let user = null;
+// console.log(user ?? "No user");
+
+// let mathsTop = true;
+// let scienceTop = false;
+// let classTopper = true;
+
+// mathsTop && scienceTop
+//   ? console.log("I will bring criket kit")
+//   : classTopper
+//   ? console.log("Samora party at canteen")
+//   : console.log("I will get you 500 rupees");
+
+// if (mathsTop && scienceTop) {
+//   console.log("I will bring criket kit");
+// } else if (classTopper) {
+//   console.log("Samora party at canteen");
+// } else {
+//   console.log("I will get you 500 rupees");
+// }
