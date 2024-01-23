@@ -1,22 +1,23 @@
-// If statement
-// Nullish coalescing operator '??'
-// let user = null;
-// console.log(user ?? "No user");
+let car = "Tesla";
+let myCar = car;
+myCar = "BMW";
+console.log(car, myCar);
 
-// let mathsTop = true;
-// let scienceTop = false;
-// let classTopper = true;
+let user = {
+  name: "John",
+  age: 30,
+  meta: {
+    country: "India",
+    city: "Delhi",
+    address: {
+      street: "123 Main St",
+      zipcode: "12345",
+    },
+  },
+};
 
-// mathsTop && scienceTop
-//   ? console.log("I will bring criket kit")
-//   : classTopper
-//   ? console.log("Samora party at canteen")
-//   : console.log("I will get you 500 rupees");
+let admin = structuredClone(user);
+user.meta.city = "Mumbai";
+user.meta.address.zipcode = "00000";
 
-// if (mathsTop && scienceTop) {
-//   console.log("I will bring criket kit");
-// } else if (classTopper) {
-//   console.log("Samora party at canteen");
-// } else {
-//   console.log("I will get you 500 rupees");
-// }
+console.log(admin.meta, user.meta);
