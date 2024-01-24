@@ -1,12 +1,17 @@
-const add = (a, b) => a + b;
+let fruit = "apple";
 
-let result;
-
-let sum = (a, b) => {
-  if (a === undefined || b === undefined) return;
-
-  result = a + b;
-  return result;
+const user = {
+  name: "John",
+  age: 30,
+  test: () => {
+    console.log("yahi pe code hai");
+    console.log(this);
+  },
 };
 
-console.log(add(34, 6565));
+const admin = {
+  name: "Admin",
+};
+
+const myTest = user.test.bind(admin);
+myTest();
