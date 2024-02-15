@@ -1,71 +1,41 @@
 /**
  * Question 1
- * Explain the difference between global, local, and block scope .
+ * Difference between undefined and null in JavaScript?
  */
-// myname = "Sarthak";
 
-// function printName() {
-//   var favFood = "pizza";
-//   console.log(favFood);
-// }
-
-// console.log(favFood);
-
-// if (true) {
-//   let favSport = "Cricket";
-//   console.log(favSport);
-//   console.log("inside if ", myname);
-// }
-
-// console.log(favSport);
+// let x = null;
+// console.log(x === undefined);
 
 /**
  * Question 2
- * Explain the concept of hoisting in JavaScript.
+ * differences between == and ===
  */
-
-// test();
-
-// function test() {
-//   console.log("Hello");
-// }
-
-// console.log(a);
-// var a = 3;
-
-// console.log(b);
-// let b = 4;
+// type coercion.
+// let a = 3;
+// let b = "3";
+// console.log(a == b);
 
 /**
  * Question 3
- * Reassigning Values with const.
+ * differences between primitive data types and objects
  */
-
-// const PI = 3.14;
-// console.log(PI);
-// PI = 5.454;
-// console.log(PI);
-
 // const user = {
 //   name: "Sarthak",
 // };
+// let PI = "3.14";
 // user.name = "John";
 // console.log(user);
-
+// PI = "345";
+// console.log(PI);
 /**
  * Question 4
- * Explain the relationship between global variables and the window object.
+ * difference between passed by value and passed by reference in JavaScript
  */
-// var mypet = "Dog";
-// console.log(window.mypet);
 
 /**
  * Question 5
- * Describe the behavior of variables declared with var, let, and const inside a loop.
+ * What is NaN
  */
-
-// for (const i = 0; i < 5; i++) {
-//   console.log(i);
-//   // setTimeout(() => {
-//   // }, 100);
-// }
+// Not a Number
+// console.log(typeof NaN);
+// console.log(34 - "sarthak");
