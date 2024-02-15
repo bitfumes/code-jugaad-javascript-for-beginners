@@ -1,41 +1,47 @@
 /**
  * Question 1
- * Difference between undefined and null in JavaScript?
+ * What is the result of 0.1 + 0.2 in JavaScript, and why
  */
 
-// let x = null;
-// console.log(x === undefined);
+// console.log(0.1 + 0.2);
 
 /**
  * Question 2
- * differences between == and ===
+ * How would you convert a string to a number in JavaScript?
  */
-// type coercion.
-// let a = 3;
-// let b = "3";
-// console.log(a == b);
+
+// console.log(parseFloat("10.345"));
+// console.log(+"10.345");
+// console.log(Number("10.345"));
+// console.log(parseInt("10.345"));
+// console.log(Math.round("10.345"));
 
 /**
  * Question 3
- * differences between primitive data types and objects
+ * Explain the difference between ++i and i++
  */
-// const user = {
-//   name: "Sarthak",
-// };
-// let PI = "3.14";
-// user.name = "John";
-// console.log(user);
-// PI = "345";
-// console.log(PI);
+
+// let i = 1;
+// console.log(++i); //
+// console.log(i);
+// let j = 1;
+// console.log(j++); //
+// console.log(j);
+
 /**
  * Question 4
- * difference between passed by value and passed by reference in JavaScript
+ * Explain the concept of operator precedence in JavaScript.
  */
+
+// console.log(2 - (4 + 5 * 2 >));
 
 /**
  * Question 5
- * What is NaN
+ * Write a JavaScript function that adds two numbers without using the + operator.
  */
-// Not a Number
-// console.log(typeof NaN);
-// console.log(34 - "sarthak");
+
+// function sum(a, b) {
+//   return -(-a - b);
+// }
+
+// console.log(sum(4, -5));
