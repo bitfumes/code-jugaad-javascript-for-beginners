@@ -1,47 +1,71 @@
 /**
  * Question 1
- * What is the result of 0.1 + 0.2 in JavaScript, and why
+ * Explain the concept of the ternary operator
  */
 
-// console.log(0.1 + 0.2);
+// let x = 0;
+// const result = x === 0 ? 100 : 1000;
+
+// if (x == 0) {
+//   console.log("value is zero");
+// } else {
+//   console.log("value is non zero");
+// }
 
 /**
  * Question 2
- * How would you convert a string to a number in JavaScript?
+ * How would you use the nullish coalescing operator (??)
  */
 
-// console.log(parseFloat("10.345"));
-// console.log(+"10.345");
-// console.log(Number("10.345"));
-// console.log(parseInt("10.345"));
-// console.log(Math.round("10.345"));
+// let username = "Sarthak";
+
+// const nameToShow = username ?? "Guest"
 
 /**
  * Question 3
- * Explain the difference between ++i and i++
+ * Explain the difference between "if-else" and "switch" statements
  */
-
-// let i = 1;
-// console.log(++i); //
-// console.log(i);
-// let j = 1;
-// console.log(j++); //
-// console.log(j);
+// const trafficLight = "red";
+// switch (trafficLight) {
+//   case "red":
+//     console.log("stop");
+//     break;
+//   case "yellow":
+//     console.log("get ready ! alert");
+//     break;
+//   case "green":
+//     console.log("go ahead");
+//     break;
+//   default:
+//     console.log("Marzi ke maalik");
+//     break;
+// }
+// if (trafficLight == "red") {
+//   console.log("stop");
+// } else if (trafficLight == "yellow") {
+//   console.log("get ready ! alert");
+// } else if (trafficLight == "green") {
+//   console.log("go ahead");
+// } else {
+//   console.log("Marzi ke maalik");
+// }
 
 /**
  * Question 4
- * Explain the concept of operator precedence in JavaScript.
+ * Explain the concept of truthy and falsy values in JavaScript
  */
-
-// console.log(2 - (4 + 5 * 2 >));
+// let name = "";
+// // falsy : 0, NaN, null, undefined, false, ""
+// if (name) {
+//   console.log("Truthy");
+// } else {
+//   console.log("Falsy");
+// }
 
 /**
  * Question 5
- * Write a JavaScript function that adds two numbers without using the + operator.
+ * Explain the concept of the "falsy bouncer" pattern in JavaScript
  */
 
-// function sum(a, b) {
-//   return -(-a - b);
-// }
-
-// console.log(sum(4, -5));
+const arr = [0, 1, 2, 3, 4];
+console.log(arr.filter((item) => item));
