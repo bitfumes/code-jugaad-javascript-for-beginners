@@ -1,50 +1,53 @@
 /**
  * Question 1
- * Explain the difference between pop and shift
+ * use the spread operator to insert elements at a specific index in an array
  */
 
-// const arr = [10, 1, 2, 3, 4, 5, 4, 3, 2];
-// console.log(arr.unshift());
-// console.log(arr);
-// const removedElement = arr.pop();
-// console.log(removedElement);
-// console.log(arr);
+// const arr = [1, 2, 3, 4, 7, 5, 9, 7];
+// function insertAt(index, el) {
+//   return [...arr.slice(0, index), el, ...arr.slice(index)];
+// }
+// console.log(insertAt(4, 6));
 
 /**
  * Question 2
- * What happens if you call shift on an empty array?
+ * Explain Deep Copy vs. Shallow Copy using spread operator
  */
 
-// const arr = [];
-// console.log(arr.shift());
-// console.log(arr);
+// const originalArray = [1, 2, [3, 4]];
+// const ShallowCopy = [...originalArray];
+// ShallowCopy[2][0] = 10;
+// console.log(ShallowCopy, originalArray);
+
+// const deepCopy = JSON.parse(JSON.stringify(originalArray));
+// deepCopy[2][0] = 10;
+// console.log(deepCopy, originalArray);
 
 /**
  * Question 3
- *  insert an element at a specific index in an array without using splice?
+ *  Flatten a multidimensional array without using flat method
  */
 
-// const arr = ["a", "b", "c"];
-// arr.splice(2, 0, "d");
-// console.log(arr);
-// const part1 = arr.slice(0, 2);
-// const part2 = arr.slice(2);
-// const finalArr = part1.concat("d", part2);
-// console.log(finalArr);
+// let arr = [[1, 2], [3, 4], [5, 6][(7, 8, 9)], [10, 11, 12, 13, 14, 15]];
+// console.log(
+//     [].concat(...arr),
+//     [].concat.apply([], arr),
+// );
 
 /**
  * Question 4
- * Write a function that removes the first element from an array without using the shift method.
+ * Determine if an element exists in an array without using includes
  */
 
-// const arr = ["apple", "mango", "graps"];
-// const finalArr = arr.splice(1);
-// const finalArr = arr.slice(1);
-// console.log(finalArr);
+// const arr = ["apple", "spices", "meat"];
+// console.log(
+//     arr.indexOf('apple') > -1
+// );
+
 /**
  * Question 5
- * How can you efficiently clear all elements from a JavaScript array without reassigning it
+ * Remove Duplicates from Array
  */
-// let arr = ["apple", "mango", "graps"];
-// arr.length = 0;
-// console.log(arr);
+// const arr = [1, 2, 2, 3, 4, 3, 5, 1];
+// const unique = [...new Set(arr)];
+// console.log(unique);
