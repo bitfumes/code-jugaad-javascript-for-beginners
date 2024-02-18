@@ -1,53 +1,58 @@
 /**
  * Question 1
- * use the spread operator to insert elements at a specific index in an array
+ * How can you determine if a property exists in a JavaScript object
  */
-
-// const arr = [1, 2, 3, 4, 7, 5, 9, 7];
-// function insertAt(index, el) {
-//   return [...arr.slice(0, index), el, ...arr.slice(index)];
+// const user = {
+//   name: "Sarthak",
+//   profession: "Software Developer",
+// };
+// if ("name" in user) {
+//   console.log(user.name);
 // }
-// console.log(insertAt(4, 6));
-
 /**
  * Question 2
- * Explain Deep Copy vs. Shallow Copy using spread operator
+ * Explain the difference between dot notation and bracket notation when accessing object properties.
  */
 
-// const originalArray = [1, 2, [3, 4]];
-// const ShallowCopy = [...originalArray];
-// ShallowCopy[2][0] = 10;
-// console.log(ShallowCopy, originalArray);
-
-// const deepCopy = JSON.parse(JSON.stringify(originalArray));
-// deepCopy[2][0] = 10;
-// console.log(deepCopy, originalArray);
+// const mycar = {
+//   company: "Tesla",
+//   "0 100": "4.2second",
+// };
+// console.log(mycar["company"]);
 
 /**
  * Question 3
- *  Flatten a multidimensional array without using flat method
+ * How do you iterate over the properties of an object?
  */
 
-// let arr = [[1, 2], [3, 4], [5, 6][(7, 8, 9)], [10, 11, 12, 13, 14, 15]];
-// console.log(
-//     [].concat(...arr),
-//     [].concat.apply([], arr),
-// );
+// const fruit = {
+//   name: "Apple",
+//   amount: "2kg",
+// };
+// const keys = Object.keys(fruit);
+// for (let i = 0; i < keys.length; i++) {
+//   console.log(fruit[keys[i]]);
+// }
+// for (prop in fruit) {
+//   console.log(fruit[prop]);
+// }
 
 /**
  * Question 4
- * Determine if an element exists in an array without using includes
+ * Explain the difference between deep and shallow copying of objects.
  */
 
-// const arr = ["apple", "spices", "meat"];
-// console.log(
-//     arr.indexOf('apple') > -1
-// );
+// const obj = { name: "John", address: { city: "New York" } };
+// const shallowCopy = { ...obj };
+// shallowCopy.address.city = "Delhi";
+// console.log(shallowCopy.address.city, obj.address.city);
+// const deepCopy = JSON.parse(JSON.stringify(obj));
+// deepCopy.address.city = "Delhi";
+// console.log(deepCopy.address.city, obj.address.city);
 
 /**
  * Question 5
- * Remove Duplicates from Array
+ * What is the purpose of the Object.is() method in JavaScript?
  */
-// const arr = [1, 2, 2, 3, 4, 3, 5, 1];
-// const unique = [...new Set(arr)];
-// console.log(unique);
+
+// console.log(Object.is(undefined, null));
