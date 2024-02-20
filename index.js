@@ -1,64 +1,71 @@
 /**
  * Question 1
- * What is the output of the following code?
-   for (let i = 0; i < 5; i++) {
-        setTimeout(function() {
-            console.log(i);
-        }, 1000);
-    }
+ * What is the difference between a regular function and an arrow function?
  */
 
-// for (var i = 0; i < 5; i++) {
-//   setTimeout(function () {
-//     console.log(i);
-//   }, 1000);
+// function test() {
+//   console.log(this);
 // }
+
+// const test2 = () => ({ name: "Sarthak" });
+// test.apply({ name: "Sarthak" });
+// test2.apply({ name: "sarthak" });
+// console.log(test2());
 
 /**
  * Question 2
- * How can you create an infinite loop using a for loop?
+ * Explain the concept of "lexical scoping" in the context of arrow functions.
  */
-// for (;;) {
-//     console.log("sarthak");
+// function test() {
+//   console.log(this);
+//   const test2 = () => console.log(this);
+//   test2();
 // }
+// const test2Outer = () => console.log(this);
+// test.apply({ name: "Sarthak" });
+// test2Outer();
+// test2.apply({ name: "sarthak" });
 
 /**
  * Question 3
- * Write a program to print the Fibonacci sequence using a loop.
+ * Discuss the behavior of arrow functions when it comes to the new keyword
  */
-// 0,1,1,2,3,5,8,13..
-// const fibonacci = [0, 1];
-// for (let i = 0; i < 20; i++) {
-//   fibonacci.push(fibonacci.at(-2) + fibonacci.at(-1));
+// function regularFunction() {
+//   console.log("RF");
 // }
-// console.log(fibonacci);
+// new regularFunction();
+
+// const arrowFunction = () => {
+//   console.log("RF");
+// };
+// new arrowFunction();
 
 /**
  * Question 4
- * How does the forEach loop differ from a standard for loop?
+ * What is the purpose of the "apply", "bind" and "call" methods in JavaScript arrow functions
  */
 
-// const arr = [0, 1, 2, 3, 4, 5];
-// for (let index = 0; index < array.length; index++) {
-//     const element = array[index];
-
-// }
-// arr.forEach((el) => {
-//   const result = el * 2;
-//   console.log(result);
-// });
+// const print = (greet, greet2) => {
+//   console.log(`${greet}, ${this.name}`);
+//   console.log(greet2);
+// };
+// const person = { name: "Sarthak" };
+// print.apply(person, ["Hello", "how are you"]);
+// print.call(person, "Hello", "Where are you going!");
+// const fn = print.bind(person, ["Hello", "how are you"]);
+// fn();
 
 /**
  * Question 5
- * Explain the concept of "labeling" loops in JavaScript.
+ * What are generator functions in JavaScript
  */
 
-// loop_i: for (let i = 0; i < 3; i++) {
-//   console.log({ i });
-//   loop_j: for (let j = 0; j < 3; j++) {
-//     if (j == 1) {
-//       break loop_i;
-//     }
-//     console.log({ j });
+// function* count() {
+//   let x = 1;
+//   while (true) {
+//     x = x * 2;
+//     yield x;
 //   }
 // }
+// const mycount = count();
+// console.log(mycount.next());
