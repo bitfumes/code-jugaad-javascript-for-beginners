@@ -1,55 +1,64 @@
 /**
  * Question 1
- * Explain the concept of property descriptors in JavaScript objects.
+ * What is the output of the following code?
+   for (let i = 0; i < 5; i++) {
+        setTimeout(function() {
+            console.log(i);
+        }, 1000);
+    }
  */
-// const user = { name: "sarthak" };
-// console.log(Object.getOwnPropertyDescriptors(user));
+
+// for (var i = 0; i < 5; i++) {
+//   setTimeout(function () {
+//     console.log(i);
+//   }, 1000);
+// }
 
 /**
  * Question 2
- * What is the difference in Object.freeze(), Object.preventExtensions & Object.seal() method?
+ * How can you create an infinite loop using a for loop?
  */
-
-// const user = { name: "sarthak" };
-// Object.preventExtensions(user); // add not allow
-// Object.seal(user); // delete and add not allow
-// Object.freeze(user); // update, delete and add not allow
-// console.log(Object.getOwnPropertyDescriptors(user));
-// delete user.name;
-// console.log(user);
+// for (;;) {
+//     console.log("sarthak");
+// }
 
 /**
  * Question 3
- * What is the difference between Object.values() and Object.entries()?
+ * Write a program to print the Fibonacci sequence using a loop.
  */
-
-// const user = { name: "sarthak", isAdmin: true };
-// console.log(Object.values(user));
-// console.log(Object.entries(user));
+// 0,1,1,2,3,5,8,13..
+// const fibonacci = [0, 1];
+// for (let i = 0; i < 20; i++) {
+//   fibonacci.push(fibonacci.at(-2) + fibonacci.at(-1));
+// }
+// console.log(fibonacci);
 
 /**
  * Question 4
- * What are JavaScript Object Prototypes ?
+ * How does the forEach loop differ from a standard for loop?
  */
-// const user = { name: "sarthak" };
-// const new_user = Object.create(user);
-// new_user.name = "Billi";
-// console.log(new_user.name);
+
+// const arr = [0, 1, 2, 3, 4, 5];
+// for (let index = 0; index < array.length; index++) {
+//     const element = array[index];
+
+// }
+// arr.forEach((el) => {
+//   const result = el * 2;
+//   console.log(result);
+// });
+
 /**
  * Question 5
- * How to create private proterties in Javascript object
+ * Explain the concept of "labeling" loops in JavaScript.
  */
 
-// const createUser = () => {
-//   let name = "Sarthak";
-
-//   return {
-//     // getName() {
-//     //   return name;
-//     // },
-//   };
-// };
-
-// const user = createUser();
-
-// console.log(user.getName());
+// loop_i: for (let i = 0; i < 3; i++) {
+//   console.log({ i });
+//   loop_j: for (let j = 0; j < 3; j++) {
+//     if (j == 1) {
+//       break loop_i;
+//     }
+//     console.log({ j });
+//   }
+// }
