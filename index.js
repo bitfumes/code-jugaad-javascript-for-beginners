@@ -1,71 +1,71 @@
 /**
  * Question 1
- * What is the difference between a regular function and an arrow function?
+ * What is the default value of this in a regular function call?
  */
 
 // function test() {
 //   console.log(this);
 // }
-
-// const test2 = () => ({ name: "Sarthak" });
-// test.apply({ name: "Sarthak" });
-// test2.apply({ name: "sarthak" });
-// console.log(test2());
+// test.call({ name: "Sarthak" });
 
 /**
  * Question 2
- * Explain the concept of "lexical scoping" in the context of arrow functions.
+ * How does arrow function behavior differ from regular functions regarding this?
  */
-// function test() {
+
+// function printName() {
 //   console.log(this);
-//   const test2 = () => console.log(this);
-//   test2();
 // }
-// const test2Outer = () => console.log(this);
-// test.apply({ name: "Sarthak" });
-// test2Outer();
-// test2.apply({ name: "sarthak" });
+
+// const printAge = () => {
+//   console.log(this);
+// };
+
+// printName.call({ age: 22 });
+// printAge.call({ age: 33 });
 
 /**
  * Question 3
- * Discuss the behavior of arrow functions when it comes to the new keyword
+ * Explain the concept of binding this using the bind method.
  */
 // function regularFunction() {
-//   console.log("RF");
+//   console.log(this);
 // }
-// new regularFunction();
 
 // const arrowFunction = () => {
-//   console.log("RF");
+//   console.log(this);
 // };
-// new arrowFunction();
+// const newAF = arrowFunction.bind({ age: 22 });
+// arrowFunction();
+// newAF();
 
 /**
  * Question 4
- * What is the purpose of the "apply", "bind" and "call" methods in JavaScript arrow functions
+ * Explain how this is affected by the use of the strict mode.
  */
 
-// const print = (greet, greet2) => {
-//   console.log(`${greet}, ${this.name}`);
-//   console.log(greet2);
+// "use strict";
+// x = 4;
+// function regularFunction() {
+//   console.log(this);
+// }
+
+// const arrowFunction = () => {
+//   console.log(this);
 // };
-// const person = { name: "Sarthak" };
-// print.apply(person, ["Hello", "how are you"]);
-// print.call(person, "Hello", "Where are you going!");
-// const fn = print.bind(person, ["Hello", "how are you"]);
-// fn();
+
+// arrowFunction();
 
 /**
  * Question 5
- * What are generator functions in JavaScript
+ * What is the purpose of the self or that pattern in JavaScript?
  */
 
-// function* count() {
-//   let x = 1;
-//   while (true) {
-//     x = x * 2;
-//     yield x;
-//   }
+// function myPhone() {
+//   let self = this;
+//   setTimeout(function () {
+//     console.log(self.model);
+//   }, 1000);
 // }
-// const mycount = count();
-// console.log(mycount.next());
+
+// myPhone.call({ model: "Iphone 16" });
