@@ -1,71 +1,90 @@
 /**
  * Question 1
- * What is the default value of this in a regular function call?
+ * Explain the concept of a higher-order function
  */
 
-// function test() {
-//   console.log(this);
+// function multiplyBy(factor) {
+//   return function (number) {
+//     return number * factor;
+//   };
 // }
-// test.call({ name: "Sarthak" });
+
+// const multiplyByTwo = multiplyBy(2);
+// const multiplyByFive = multiplyBy(5);
+// console.log(multiplyByTwo(44));
+// console.log(multiplyByFive(10));
 
 /**
  * Question 2
- * How does arrow function behavior differ from regular functions regarding this?
+ * Explain the concept of "callback hell" and how you can mitigate it.
  */
 
-// function printName() {
-//   console.log(this);
+// async function fetchUser() {
+//     let user = []
+//   setTimeout(() => {
+//     console.log("user got");
+//     user = [];
+//   }, 1000);
+//   return user
 // }
 
-// const printAge = () => {
-//   console.log(this);
-// };
+// async function fetchProduct(user) {
+//   const products = [];
+// }
 
-// printName.call({ age: 22 });
-// printAge.call({ age: 33 });
+// async function fetchVariants(products, callback) {
+//     const variants = [];
+//     callback(variants)
+// }
+
+// async function fetchColors(variants){
+//     const colors = []
+// }
+
+// const user = await fetchUser()
+// const products = await fetchProduct(user)
+
+// fetchUser(
+//     fetchProduct(user,
+//         fetchVariants(products,
+//             fetchColors(variants)
+//         )
+//     )
+// );
 
 /**
  * Question 3
- * Explain the concept of binding this using the bind method.
+ * Explain the concept of "function currying"
  */
-// function regularFunction() {
-//   console.log(this);
+
+// function curryFunc(a) {
+//     return function(b) {
+//         return function(c) {
+//             return a + b + c
+//         }
+//     }
 // }
 
-// const arrowFunction = () => {
-//   console.log(this);
-// };
-// const newAF = arrowFunction.bind({ age: 22 });
-// arrowFunction();
-// newAF();
+// console.log(
+//     curryFunc(1)(2)(3)
+// );
 
 /**
  * Question 4
- * Explain how this is affected by the use of the strict mode.
+ * Explain the concept of "event callbacks" in the context of the DOM
  */
-
-// "use strict";
-// x = 4;
-// function regularFunction() {
-//   console.log(this);
-// }
-
-// const arrowFunction = () => {
-//   console.log(this);
-// };
-
-// arrowFunction();
+// window.addEventListener("DOMContentLoaded", (event) => {
+//   //   console.log(event);
+//   console.log("Contetn is loaded");
+// });
 
 /**
  * Question 5
- * What is the purpose of the self or that pattern in JavaScript?
+ * How can you use the 'some' function with a callback
  */
 
-// function myPhone() {
-//   let self = this;
-//   setTimeout(function () {
-//     console.log(self.model);
-//   }, 1000);
-// }
-
-// myPhone.call({ model: "Iphone 16" });
+// const arr = [1, 2, 3, 4, 0, 5];
+// const result = arr.some((el) => {
+//   return el > 6;
+// });
+// console.log(result);
