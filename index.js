@@ -1,90 +1,56 @@
 /**
  * Question 1
- * Explain the concept of a higher-order function
+ * Explain the concept of the every method in JavaScript arrays
  */
 
-// function multiplyBy(factor) {
-//   return function (number) {
-//     return number * factor;
-//   };
-// }
+// const numbers = [2, 4, 6, 8];
+// const result = numbers.every((number) =>{
+//     return number % 2 == 0
+// })
 
-// const multiplyByTwo = multiplyBy(2);
-// const multiplyByFive = multiplyBy(5);
-// console.log(multiplyByTwo(44));
-// console.log(multiplyByFive(10));
+// console.log(result);
 
 /**
  * Question 2
- * Explain the concept of "callback hell" and how you can mitigate it.
+ * Explain the concept of the flatMap method in JavaScript arrays.
  */
-
-// async function fetchUser() {
-//     let user = []
-//   setTimeout(() => {
-//     console.log("user got");
-//     user = [];
-//   }, 1000);
-//   return user
-// }
-
-// async function fetchProduct(user) {
-//   const products = [];
-// }
-
-// async function fetchVariants(products, callback) {
-//     const variants = [];
-//     callback(variants)
-// }
-
-// async function fetchColors(variants){
-//     const colors = []
-// }
-
-// const user = await fetchUser()
-// const products = await fetchProduct(user)
-
-// fetchUser(
-//     fetchProduct(user,
-//         fetchVariants(products,
-//             fetchColors(variants)
-//         )
-//     )
-// );
+// const numbers = [2, 4, 6, 8, [1,[3]]];
+// const newNum = numbers.flatMap(number => Array.isArray(number) ? number :  number * 2)
+// // const newNums = numbers.flat()
+// // const newNum2 = newNums.map(number => number*2)
+// console.log(newNum);
 
 /**
  * Question 3
- * Explain the concept of "function currying"
+ * Explain the concept of the Symbol.iterator in the context of array iteration.
  */
+// const numbers = [2, 4, 6, 8];
+// const iterator = numbers[Symbol.iterator]();
 
-// function curryFunc(a) {
-//     return function(b) {
-//         return function(c) {
-//             return a + b + c
-//         }
-//     }
+// while( ! next.done) {
+//     console.log(next);
+//     next = iterator.next();
 // }
-
-// console.log(
-//     curryFunc(1)(2)(3)
-// );
 
 /**
  * Question 4
- * Explain the concept of "event callbacks" in the context of the DOM
+ * Explain the concept of the copyWithin method in JavaScript arrays.
  */
-// window.addEventListener("DOMContentLoaded", (event) => {
-//   //   console.log(event);
-//   console.log("Contetn is loaded");
-// });
+// const numbers = [111, 2, 3, 4];
+
+// numbers.copyWithin(3, 2)
+// console.log(numbers);
 
 /**
  * Question 5
- * How can you use the 'some' function with a callback
+ * How can you reverse the order of elements in an array using array iteration methods?
  */
 
-// const arr = [1, 2, 3, 4, 0, 5];
-// const result = arr.some((el) => {
-//   return el > 6;
-// });
-// console.log(result);
+// const numbers = [1, 2, 3, 4];
+// // numbers.reverse()
+// // console.log(numbers);
+
+// const reversedArray = numbers.map((_, index, array) => {
+//     return array[array.length - 1 - index]
+// })
+// console.log(reversedArray);
