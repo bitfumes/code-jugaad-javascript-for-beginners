@@ -1,56 +1,61 @@
 /**
  * Question 1
- * Explain the concept of the every method in JavaScript arrays
+ * Write a function that filters out all negative numbers from an array using the filter method.
  */
 
-// const numbers = [2, 4, 6, 8];
-// const result = numbers.every((number) =>{
-//     return number % 2 == 0
-// })
-
-// console.log(result);
-
+// const myarr = [-10, 160, 87, 45, -120, 92, -73];
+// const newMyArr = myarr.filter((num) => num >= 0);
+// console.log(newMyArr);
 /**
  * Question 2
- * Explain the concept of the flatMap method in JavaScript arrays.
+ * Write a function using some to check if there is at least one element in an array that is a palindrome (reads the same backward as forward).
  */
-// const numbers = [2, 4, 6, 8, [1,[3]]];
-// const newNum = numbers.flatMap(number => Array.isArray(number) ? number :  number * 2)
-// // const newNums = numbers.flat()
-// // const newNum2 = newNums.map(number => number*2)
-// console.log(newNum);
+
+const stringArray = ["level", "hello", "racecar", "world"];
+
+function hasPalindrom(word) {
+  return word === word.split("").reverse().join("");
+}
+const arrayIsPalindrom = stringArray.some((word) => hasPalindrom(word));
+console.log(arrayIsPalindrom);
 
 /**
  * Question 3
- * Explain the concept of the Symbol.iterator in the context of array iteration.
+ * Write a function that filter out on any criteria that user can provide in a callback function
  */
-// const numbers = [2, 4, 6, 8];
-// const iterator = numbers[Symbol.iterator]();
 
-// while( ! next.done) {
-//     console.log(next);
-//     next = iterator.next();
-// }
+// const filter = (arr, callback) => {
+//   const filteredArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     callback(arr[i]) ? filteredArr.push(arr[i]) : "";
+//   }
+//   return filteredArr;
+// };
+
+// const myarr = [-10, 160, 87, 45, -120, 92, -73];
+// const newMyArr = filter(myarr, (num) => num % 2 == 0);
+// console.log(newMyArr);
 
 /**
  * Question 4
- * Explain the concept of the copyWithin method in JavaScript arrays.
+ * Write a function customSome that replicates the functionality of the some method
  */
-// const numbers = [111, 2, 3, 4];
 
-// numbers.copyWithin(3, 2)
-// console.log(numbers);
+// const customSome = (arr, callback) => {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (callback(arr[i])) {
+//       return true;
+//     }
+//   }
+
+//   return false;
+// };
+
+// const arrOfNumbers = [1, 3, 5, 7, 9];
+// const isEven = customSome(arrOfNumbers, (num) => num % 2 === 0);
+// console.log(isEven);
 
 /**
  * Question 5
- * How can you reverse the order of elements in an array using array iteration methods?
+ * Write a function customEvery that replicates the functionality of the every method
  */
-
-// const numbers = [1, 2, 3, 4];
-// // numbers.reverse()
-// // console.log(numbers);
-
-// const reversedArray = numbers.map((_, index, array) => {
-//     return array[array.length - 1 - index]
-// })
-// console.log(reversedArray);
