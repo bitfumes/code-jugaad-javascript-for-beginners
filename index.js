@@ -1,55 +1,43 @@
 /**
  * Question 1
- * What is the purpose of Object.defineProperty in JavaScript, and how does it differ from regular property assignment?
- *
- *
+ * What is the difference between charAt and bracket notation to access characters in a string?
  */
-
-// const obj = {};
-// obj.name = "John";
-
-// Object.defineProperty(obj, "name", {
-//   value: "John",
-//   writable: false,
-//   enumerable: false,
-//   configurable: false,
-// });
-// delete obj.name;
-
-// console.log(obj);
+// const myname = "Sarthak";
+// console.log(myname.charAt(true));
+// console.log(myname[true]);
 
 /**
  * Question 2
- * Can you explain the difference between for...in and Object.keys when iterating over object properties?
+ * What does the String.fromCharCode() method do in JavaScript?
  *
  */
-// function Person() {
-//   this.name = "John";
-//   this.age = 30;
-// }
 
-// const john = new Person();
-// Person.prototype.gender = "Male";
-
-// for (let key in john) {
-//   console.log(key);
-// }
-
-// console.log(Object.keys(john));
+// const myname = "Sarthak";
+// console.log(String.fromCharCode(65));
+// console.log("A".charCodeAt(0));
 
 /**
  * Question 3
- * How can you prevent an object property from being deleted using Object.defineProperty?
+ * What is the purpose of the concat() method in JavaScript strings?
  *
  */
+// const fn = "Sarthak";
+// const ln = "Shrivastava";
+// console.log(fn.concat(" ", ln));
 
-// const obj = { name: "John" };
+/**
+ * Question 4
+ * Explain the difference between substr() and substring() in JavaScript.
+ *
+ */
+// const myname = "Sarthak";
+// console.log(myname.substr(1, 3));
+// console.log(myname.substring(1, 3));
 
-// Object.defineProperty(obj, "name", {
-//   value: "John",
-//   configurable: false,
-// });
-
-// delete obj.name;
-
-// console.log(obj);
+/**
+ * Question 5
+ * How can you check if a string is empty in JavaScript?
+ *
+ */
+// const myname = "";
+// console.log(myname.length === 0);
