@@ -1,43 +1,55 @@
 /**
  * Question 1
- * How can you use the Array.reduce function to flatten an array of arrays?
+ * What is the purpose of Object.defineProperty in JavaScript, and how does it differ from regular property assignment?
+ *
  *
  */
 
-const nestedArray = [
-  [1, 2],
-  [3, 4],
-  [5, 6],
-];
-const newFlatArr = nestedArray.reduce((acc, curr) => {
-  return acc.concat(curr);
-}, []);
-console.log(newFlatArr);
+// const obj = {};
+// obj.name = "John";
+
+// Object.defineProperty(obj, "name", {
+//   value: "John",
+//   writable: false,
+//   enumerable: false,
+//   configurable: false,
+// });
+// delete obj.name;
+
+// console.log(obj);
+
 /**
  * Question 2
- * How can you find the maximum element in an array using Array.reduce?
+ * Can you explain the difference between for...in and Object.keys when iterating over object properties?
  *
  */
+// function Person() {
+//   this.name = "John";
+//   this.age = 30;
+// }
 
-const numbers = [10, 20, 30, 40, 50];
-const max = numbers.reduce((acc, curr) => {
-  return acc > curr ? acc : curr;
-}, 0);
-console.log(max);
+// const john = new Person();
+// Person.prototype.gender = "Male";
+
+// for (let key in john) {
+//   console.log(key);
+// }
+
+// console.log(Object.keys(john));
 
 /**
  * Question 3
- * How can you find the average of an array using Array.reduce?
+ * How can you prevent an object property from being deleted using Object.defineProperty?
  *
  */
 
-const numbers1 = [10, 20, 30, 40, 50];
-const avg = numbers1.reduce((acc, curr, index) => {
-  if (index === numbers1.length - 1) {
-    return (acc + curr) / numbers1.length;
-  } else {
-    return acc + curr;
-  }
-}, 0);
+// const obj = { name: "John" };
 
-console.log(avg);
+// Object.defineProperty(obj, "name", {
+//   value: "John",
+//   configurable: false,
+// });
+
+// delete obj.name;
+
+// console.log(obj);
