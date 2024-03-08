@@ -1,69 +1,72 @@
 /**
  * Question 1
- * Explain the use of the instanceof operator with classes.
+ * What is the role of the super keyword in JavaScript class inheritance?
  */
-// class Animal {}
-// class Book {}
 
-// const dog = new Animal();
-// const showDog = new Book();
-// console.log(dog instanceof Animal); // true
-// console.log(showDog instanceof Book); // false
+// class Vehicle {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   start() {
+//     return `Starting: ${this.name}`;
+//   }
+// }
+
+// class Car extends Vehicle {
+//   constructor(name, model) {
+//     super(name);
+//     this.model = model;
+//   }
+
+//   start() {
+//     console.log(super.start());
+//     console.log(`Model name is ${this.model} `);
+//   }
+// }
+
+// const car = new Car("Toyota", "Camry");
+// car.start();
 
 /**
  * Question 2
- * How can you create a singleton pattern using a JavaScript class?
+ * Explain the concept of method overriding in class inheritance.
  */
-
-// class Singleton {
-//   static instance;
-
-//   constructor() {
-//     if (Singleton.instance) {
-//       return Singleton.instance;
-//     }
-
-//     Singleton.instance = this;
-//     console.log("constructor called");
-//   }
-// }
-
-// const instance1 = new Singleton();
-// const instance2 = new Singleton();
-// console.log(instance1 === instance2);
 
 /**
  * Question 3
- * Explain the concept of method chaining in JavaScript classes.
+ *  Implement multiple inheritance in JavaScript using classes. Provide an example with explanation.
  *
  */
 
-// class Caclulator {
-//   value;
+class Animal {
+  move() {
+    console.log("I can move");
+  }
+}
 
-//   take(val) {
-//     this.value = val;
-//     return this;
-//   }
+class Flying {
+  fly() {
+    console.log("I can fly");
+  }
+}
 
-//   add(num) {
-//     this.value += num;
-//     return this;
-//   }
+class Bird extends Flying {
+  constructor() {
+    super();
+    this.animal = new Animal();
+  }
 
-//   multiply(num) {
-//     this.value *= num;
-//     return this;
-//   }
-// }
+  move() {
+    this.animal.move();
+  }
+}
 
-// const calc = new Caclulator();
-// calc.take(10).add(5).multiply(2);
-
-// console.log(calc.value);
+const myBird = new Bird();
+myBird.move();
+myBird.fly();
 
 /**
  * Question 4
- * What is the purpose of the Object.freeze() method in the context of JavaScript classes?
+ * Implement a showInfo method in the Animal class that logs "This is an animal." Override this method in the Dog class to log "This is a dog."
  *
  */
