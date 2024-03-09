@@ -1,58 +1,81 @@
 /**
  * Question 1
- * How can you handle multiple types of exceptions using a single "catch" block
+ * What is a promise and how can it help in resolving callback hell?
+ *
  */
-// try {
-//   if (Math.random() > 0.5) {
-//     throw new Error("Error 1");
-//   } else {
-//     throw new TypeError("Error 2");
-//   }
-// } catch (error) {
-//   if (error instanceof TypeError) {
-//     console.log("Caught TypeError: " + error.message);
-//   } else if (error instanceof Error) {
-//     console.log("Caught Error: " + error.message);
-//   }
+// async function fetchData() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("Data resolved");
+//     }, 1000);
+//   });
 // }
+
+// fetchData()
+//   .then((res) => {
+//     console.log(res);
+//     return fetchData();
+//   })
+//   .then((res) => {
+//     console.log(res);
+//     return fetchData();
+//   })
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((e) => {
+//     console.error(e);
+//   });
 
 /**
  * Question 2
- * Explain the behavior of "finally" block when a "return" statement is present in both "try" and "finally."
- */
-
-// function testFunction() {
-//   try {
-//     return "This is try return";
-//   } finally {
-//     return "This is finally return";
-//   }
-// }
-
-// console.log(testFunction());
-
-/**
- * Question 3
- * Is it possible to throw a custom exception in JavaScript?
+ * What are async/await and how do they help in dealing with callback hell?
  *
  */
 
-// class CustomException extends Error {
-//   constructor(message) {
-//     super();
-//     this.message = message;
+// async function getData() {
+//   try {
+//     const res1 = await fetchData();
+//     console.log(res1);
+//     const res2 = await fetchData();
+//     console.log(res2);
+//     const res3 = await fetchData();
+//     console.log(res3);
+//   } catch (error) {
+//     console.error(error);
 //   }
 // }
 
-// try {
-//   throw new CustomException("This is a custom exception");
-// } catch (error) {
-//   if (error instanceof CustomException) {
-//     console.error("Caught CustomException: " + error.message);
-//   }
+// getData();
+
+/**
+ * Question 3
+ * What is the purpose of the "Promise.all" method in the context of callback hell?
+ *
+ */
+
+// function fetchUser(id) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve(`User ${id} fetched`);
+//     }, 1000 * id);
+//   });
 // }
+
+// const user1 = fetchUser(1);
+// const user2 = fetchUser(2);
+// const user3 = fetchUser(3);
+
+// Promise.all([user1, user2, user3]).then((res) => {
+//   console.log(res);
+// });
+
+// user1.then((res) => console.log(res));
+// user2.then((res) => console.log(res));
+// user3.then((res) => console.log(res));
 
 /**
  * Question 4
- * Show that you can throw an exception from a function and catch it in the calling code.
+ * Explain the concept of "callback inversion" and how it relates to callback hell.
+ *
  */
