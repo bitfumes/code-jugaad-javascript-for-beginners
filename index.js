@@ -1,72 +1,58 @@
 /**
  * Question 1
- * What is the role of the super keyword in JavaScript class inheritance?
+ * How can you handle multiple types of exceptions using a single "catch" block
  */
-
-// class Vehicle {
-//   constructor(name) {
-//     this.name = name;
+// try {
+//   if (Math.random() > 0.5) {
+//     throw new Error("Error 1");
+//   } else {
+//     throw new TypeError("Error 2");
 //   }
-//   start() {
-//     return `Starting: ${this.name}`;
-//   }
-// }
-
-// class Car extends Vehicle {
-//   constructor(name, model) {
-//     super(name);
-//     this.model = model;
-//   }
-
-//   start() {
-//     console.log(super.start());
-//     console.log(`Model name is ${this.model} `);
+// } catch (error) {
+//   if (error instanceof TypeError) {
+//     console.log("Caught TypeError: " + error.message);
+//   } else if (error instanceof Error) {
+//     console.log("Caught Error: " + error.message);
 //   }
 // }
-
-// const car = new Car("Toyota", "Camry");
-// car.start();
 
 /**
  * Question 2
- * Explain the concept of method overriding in class inheritance.
+ * Explain the behavior of "finally" block when a "return" statement is present in both "try" and "finally."
  */
+
+// function testFunction() {
+//   try {
+//     return "This is try return";
+//   } finally {
+//     return "This is finally return";
+//   }
+// }
+
+// console.log(testFunction());
 
 /**
  * Question 3
- *  Implement multiple inheritance in JavaScript using classes. Provide an example with explanation.
+ * Is it possible to throw a custom exception in JavaScript?
  *
  */
 
-class Animal {
-  move() {
-    console.log("I can move");
-  }
-}
+// class CustomException extends Error {
+//   constructor(message) {
+//     super();
+//     this.message = message;
+//   }
+// }
 
-class Flying {
-  fly() {
-    console.log("I can fly");
-  }
-}
-
-class Bird extends Flying {
-  constructor() {
-    super();
-    this.animal = new Animal();
-  }
-
-  move() {
-    this.animal.move();
-  }
-}
-
-const myBird = new Bird();
-myBird.move();
-myBird.fly();
+// try {
+//   throw new CustomException("This is a custom exception");
+// } catch (error) {
+//   if (error instanceof CustomException) {
+//     console.error("Caught CustomException: " + error.message);
+//   }
+// }
 
 /**
  * Question 4
- * Implement a showInfo method in the Animal class that logs "This is an animal." Override this method in the Dog class to log "This is a dog."
- *
+ * Show that you can throw an exception from a function and catch it in the calling code.
  */
