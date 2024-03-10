@@ -1,81 +1,78 @@
 /**
  * Question 1
- * What is a promise and how can it help in resolving callback hell?
+ * Can you create a recursive function that returns a Promise?
  *
  */
-// async function fetchData() {
+
+// function calculateFactorial(num) {
 //   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       resolve("Data resolved");
-//     }, 1000);
+//     if (num < 0) {
+//       reject("Number must be greater than 0");
+//     } else if (num === 0) {
+//       resolve(1);
+//     } else {
+//       calculateFactorial(num - 1).then((result) => {
+//         resolve(num * result);
+//       });
+//     }
 //   });
 // }
 
-// fetchData()
-//   .then((res) => {
-//     console.log(res);
-//     return fetchData();
-//   })
-//   .then((res) => {
-//     console.log(res);
-//     return fetchData();
-//   })
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch((e) => {
-//     console.error(e);
-//   });
+// calculateFactorial(5).then((result) => {
+//   console.log(result);
+// });
 
 /**
  * Question 2
- * What are async/await and how do they help in dealing with callback hell?
+ * How does the Promise.finally block differ from then and catch blocks? Provide an example.
  *
  */
 
-// async function getData() {
-//   try {
-//     const res1 = await fetchData();
-//     console.log(res1);
-//     const res2 = await fetchData();
-//     console.log(res2);
-//     const res3 = await fetchData();
-//     console.log(res3);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-// getData();
-
-/**
- * Question 3
- * What is the purpose of the "Promise.all" method in the context of callback hell?
- *
- */
-
-// function fetchUser(id) {
+// function checkSuccess() {
 //   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       resolve(`User ${id} fetched`);
-//     }, 1000 * id);
+//     const isSuccess = Math.random() > 0.5;
+//     if (isSuccess) {
+//       resolve("Success");
+//     } else {
+//       reject("Failure");
+//     }
 //   });
 // }
 
-// const user1 = fetchUser(1);
-// const user2 = fetchUser(2);
-// const user3 = fetchUser(3);
+// checkSuccess()
+//   .then((result) => {
+//     console.log(result);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     console.log("Finally block");
+//   });
 
-// Promise.all([user1, user2, user3]).then((res) => {
-//   console.log(res);
+/**
+ * Question 3
+ * Explain the difference between the Promise.all and Promise.allSettled methods.
+ *
+ */
+
+// const promise1 = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve(1), 1000);
+// });
+// const promise2 = new Promise((resolve, reject) => {
+//   setTimeout(() => reject(2), 2000);
 // });
 
-// user1.then((res) => console.log(res));
-// user2.then((res) => console.log(res));
-// user3.then((res) => console.log(res));
+// Promise.allSettled([promise1, promise2])
+//   .then((values) => {
+//     console.log(values);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 
 /**
  * Question 4
- * Explain the concept of "callback inversion" and how it relates to callback hell.
+ * What happens if you call resolve or reject multiple times within a Promise?
  *
  */
