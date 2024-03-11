@@ -1,61 +1,31 @@
 /**
  * Question 1
- * How would you handle errors in an async/await function without using try...catch?
+ * Explain the difference between default exports and named exports in JavaScript modules.
  *
  */
-
-// async function fetchPosts() {
-//   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-//   return res.json();
-// }
-
-// fetchPosts()
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch((e) => {
-//     console.log(`This is the Error: ${e}`);
-//   });
-
+// import { div } from "./math.js";
+// console.log(div(12, 3));
 /**
  * Question 2
- * Explain the behavior of concurrent asynchronous operations inside an async function.
+ * Explain the concept of namespace import in JavaScript modules.
  *
  */
 
-// async function fetchPosts() {
-//   const res1 = await fetch("https://jsonplaceholder.typicode.com/posts");
-//   const res2 = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+// import * as math from "./math.js";
+// console.log(math.div(45, 3));
 
-//   const res = Promise.allSettled([res1.json(), res2.json()]);
-//   const data = await res;
-//   console.log(data);
-// }
-
-// fetchPosts();
 /**
  * Question 3
- * How do you handle timeouts in async/await functions?
+ * Explain the use of import aliases in JavaScript modules.
  *
  */
 
-// function delay(ms) {
-//   return new Promise((resolve) => setTimeout(resolve, ms));
-// }
+// import { sum as add, sub as minus } from "./math.js";
+// console.log(add(45, 3));
+// console.log(minus(45, 3));
 
-// async function myAsyncCall() {
-//   await delay(2000);
-//   return "My Async Call is done";
-// }
-
-// async function runTimeout() {
-//   const result = await Promise.race([myAsyncCall(), delay(4000)]);
-//   console.log(result);
-// }
-
-// runTimeout();
 /**
  * Question 4
- * Can you use await outside of an async function?
+ *  How can you import both default and named exports from a single module?
  *
  */
