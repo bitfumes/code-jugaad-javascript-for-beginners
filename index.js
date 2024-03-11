@@ -1,78 +1,61 @@
 /**
  * Question 1
- * Can you create a recursive function that returns a Promise?
+ * How would you handle errors in an async/await function without using try...catch?
  *
  */
 
-// function calculateFactorial(num) {
-//   return new Promise((resolve, reject) => {
-//     if (num < 0) {
-//       reject("Number must be greater than 0");
-//     } else if (num === 0) {
-//       resolve(1);
-//     } else {
-//       calculateFactorial(num - 1).then((result) => {
-//         resolve(num * result);
-//       });
-//     }
-//   });
+// async function fetchPosts() {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+//   return res.json();
 // }
 
-// calculateFactorial(5).then((result) => {
-//   console.log(result);
-// });
+// fetchPosts()
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((e) => {
+//     console.log(`This is the Error: ${e}`);
+//   });
 
 /**
  * Question 2
- * How does the Promise.finally block differ from then and catch blocks? Provide an example.
+ * Explain the behavior of concurrent asynchronous operations inside an async function.
  *
  */
 
-// function checkSuccess() {
-//   return new Promise((resolve, reject) => {
-//     const isSuccess = Math.random() > 0.5;
-//     if (isSuccess) {
-//       resolve("Success");
-//     } else {
-//       reject("Failure");
-//     }
-//   });
+// async function fetchPosts() {
+//   const res1 = await fetch("https://jsonplaceholder.typicode.com/posts");
+//   const res2 = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+
+//   const res = Promise.allSettled([res1.json(), res2.json()]);
+//   const data = await res;
+//   console.log(data);
 // }
 
-// checkSuccess()
-//   .then((result) => {
-//     console.log(result);
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   })
-//   .finally(() => {
-//     console.log("Finally block");
-//   });
-
+// fetchPosts();
 /**
  * Question 3
- * Explain the difference between the Promise.all and Promise.allSettled methods.
+ * How do you handle timeouts in async/await functions?
  *
  */
 
-// const promise1 = new Promise((resolve, reject) => {
-//   setTimeout(() => resolve(1), 1000);
-// });
-// const promise2 = new Promise((resolve, reject) => {
-//   setTimeout(() => reject(2), 2000);
-// });
+// function delay(ms) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
 
-// Promise.allSettled([promise1, promise2])
-//   .then((values) => {
-//     console.log(values);
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
+// async function myAsyncCall() {
+//   await delay(2000);
+//   return "My Async Call is done";
+// }
 
+// async function runTimeout() {
+//   const result = await Promise.race([myAsyncCall(), delay(4000)]);
+//   console.log(result);
+// }
+
+// runTimeout();
 /**
  * Question 4
- * What happens if you call resolve or reject multiple times within a Promise?
+ * Can you use await outside of an async function?
  *
  */
