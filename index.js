@@ -1,78 +1,50 @@
 /**
  * Question 1
- * How can you use a Proxy in JavaScript to prevent access to certain properties using the get handler?
+ * How would you handle the deletion of a non-configurable property using Reflect.deleteProperty()?
  *
  */
-// const target = {
-//   name: "Alice",
-//   age: 25,
-//   password: "12345",
-// };
+const obj1 = {};
 
-// const handler = {
-//   get: function (target, prop, receiver) {
-//     if (prop === "password") {
-//       throw new Error("Access denied");
-//     }
-//     return Reflect.get(...arguments);
-//   },
-// };
+// Object.defineProperty(obj1, "a", {
+//   value: 1,
+//   configurable: false,
+// });
 
-// const proxy = new Proxy(target, handler);
+// // delete obj1.a;
+// if (Reflect.deleteProperty(obj1, "a")) {
+//   console.log("Property deleted");
+// }
 
-// console.log(proxy.password);
+// console.log(obj1.a);
 
 /**
  * Question 2
- * How can you use the set handler of a Proxy object to validate and manipulate property assignments?
+ *  Create a proxy using Reflect to intercept property definition in JavaScript.
  *
  */
+const obj2 = {};
 
-// const target = {
-//   name: "Bob",
-//   age: 20,
-// };
 // const handler = {
-//   set: function (target, prop, value) {
-//     if (prop === "age" && value < 0) {
-//       throw new Error("Age can't be negative");
-//     } else {
-//       target[prop] = value;
-//       return true;
-//     }
+//   defineProperty(target, key, descriptor) {
+//     console.log("Property defined");
+//     return Reflect.defineProperty(target, key, descriptor);
 //   },
 // };
-// const proxy = new Proxy(target, handler);
-// console.log(proxy.age);
-// proxy.age = 25;
-// console.log(proxy.age);
-// proxy.age = -5;
+// const proxy = new Proxy(obj2, handler);
+
+// proxy.age = 23;
 // console.log(proxy.age);
 
 /**
  * Question 3
- * Illustrate how to use the ownKeys handler of a Proxy object to control what keys are visible through Object.keys().
+ * How can you check if an object has a property using Reflect in JavaScript?
  *
  */
-// const target = {
-//   name: "Charlie",
-//   age: 30,
-//   _internal: "hidden",
-//   _salary: 1000,
-// };
-
-// const handler = {
-//   ownKeys: function (target) {
-//     return Reflect.ownKeys(target).filter((key) => key[0] !== "_");
-//   },
-// };
-// const proxy = new Proxy(target, handler);
-
-// console.log(Object.keys(proxy));
+const obj3 = { a: 1, b: 2 };
+// console.log(Reflect.has(obj3, "c"));
 
 /**
  * Question 4
- * How can you combine get and set handlers to implement a computed property in a Proxy object?
-
+ * How can you use Reflect to set properties in JavaScript?
  *
  */
