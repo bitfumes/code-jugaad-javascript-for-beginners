@@ -1,31 +1,78 @@
 /**
  * Question 1
- * Explain the difference between default exports and named exports in JavaScript modules.
+ * How can you use a Proxy in JavaScript to prevent access to certain properties using the get handler?
  *
  */
-// import { div } from "./math.js";
-// console.log(div(12, 3));
+// const target = {
+//   name: "Alice",
+//   age: 25,
+//   password: "12345",
+// };
+
+// const handler = {
+//   get: function (target, prop, receiver) {
+//     if (prop === "password") {
+//       throw new Error("Access denied");
+//     }
+//     return Reflect.get(...arguments);
+//   },
+// };
+
+// const proxy = new Proxy(target, handler);
+
+// console.log(proxy.password);
+
 /**
  * Question 2
- * Explain the concept of namespace import in JavaScript modules.
+ * How can you use the set handler of a Proxy object to validate and manipulate property assignments?
  *
  */
 
-// import * as math from "./math.js";
-// console.log(math.div(45, 3));
+// const target = {
+//   name: "Bob",
+//   age: 20,
+// };
+// const handler = {
+//   set: function (target, prop, value) {
+//     if (prop === "age" && value < 0) {
+//       throw new Error("Age can't be negative");
+//     } else {
+//       target[prop] = value;
+//       return true;
+//     }
+//   },
+// };
+// const proxy = new Proxy(target, handler);
+// console.log(proxy.age);
+// proxy.age = 25;
+// console.log(proxy.age);
+// proxy.age = -5;
+// console.log(proxy.age);
 
 /**
  * Question 3
- * Explain the use of import aliases in JavaScript modules.
+ * Illustrate how to use the ownKeys handler of a Proxy object to control what keys are visible through Object.keys().
  *
  */
+// const target = {
+//   name: "Charlie",
+//   age: 30,
+//   _internal: "hidden",
+//   _salary: 1000,
+// };
 
-// import { sum as add, sub as minus } from "./math.js";
-// console.log(add(45, 3));
-// console.log(minus(45, 3));
+// const handler = {
+//   ownKeys: function (target) {
+//     return Reflect.ownKeys(target).filter((key) => key[0] !== "_");
+//   },
+// };
+// const proxy = new Proxy(target, handler);
+
+// console.log(Object.keys(proxy));
 
 /**
  * Question 4
- *  How can you import both default and named exports from a single module?
+ * How can you combine get and set handlers to implement a computed property in a Proxy object?
+
  *
  */
